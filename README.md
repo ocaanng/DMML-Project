@@ -1,10 +1,10 @@
 # DMML-Project
 
 # Kelompok 9
-Shaff Shalihin (H071221093) - Leader
-Al Qadri (H071221052)
-Mifthahul Hoiri (H071221072)
-Andi Muhammad Fauzan Baihaqi (H071221088)
+## Shaff Shalihin (H071221093) - Leader
+## Al Qadri (H071221052)
+## Mifthahul Hoiri (H071221072)
+## Andi Muhammad Fauzan Baihaqi (H071221088)
 
 
 ## [Link GoogleDocs Laporan](https://docs.google.com/document/d/1TVnqlBXHyk6kpmUoGUJ_rBVPX9myTUFeui9mvvBQaKw/edit)

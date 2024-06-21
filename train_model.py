@@ -28,23 +28,33 @@ vectorizer = TfidfVectorizer(max_features=5000)
 X_train_tfidf = vectorizer.fit_transform(X_train)
 X_test_tfidf = vectorizer.transform(X_test)
 
+from sklearn.naive_bayes import MultinomialNB
+
+#Pelatihan Model Naive Bayes
+nb_model = MultinomialNB()
+nb_model.fit(X_train_tfidf, y_train)
+# Memprediksi pada data uji
+y_pred = nb_model.predict(X_test_tfidf)
+# Evaluasi model
+print("Accuracy:", accuracy_score(y_test, y_pred))
+print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
+print("Classification Report:\n", classification_report(y_test, y_pred))
+
 # Melatih model Logistic Regression
 model = LogisticRegression()
 model.fit(X_train_tfidf, y_train)
-
 # Memprediksi pada data uji
 y_pred = model.predict(X_test_tfidf)
+# Evaluasi model
+print("Accuracy:", accuracy_score(y_test, y_pred))
+print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
+print("Classification Report:\n", classification_report(y_test, y_pred))
 
 # Grid Search untuk optimasi hyperparameter
 from sklearn.model_selection import GridSearchCV
 param_grid = {'C': [0.1, 1, 10], 'solver': ['newton-cg', 'lbfgs', 'liblinear']}
 grid = GridSearchCV(LogisticRegression(), param_grid, refit=True, verbose=2)
 grid.fit(X_train_tfidf, y_train)
-
-# Evaluasi model
-print("Accuracy:", accuracy_score(y_test, y_pred))
-print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
-print("Classification Report:\n", classification_report(y_test, y_pred))
 
 # Hasil terbaik
 print("hasil terbaik")

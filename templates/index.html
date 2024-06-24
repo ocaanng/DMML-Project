@@ -2,36 +2,204 @@
 <html>
 <head>
     <title>Sentiment Analysis</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #1f1f1f;
+            color: #f5f5f5;
+            margin: 0;
+            font-size: 18px;
+            padding: 0;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: #2c2c2c; 
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+            width: 1500px;
+            height: 550px;
+            display: flex;
+        }
+        .form-section, .reviews-section {
+            background-color: #333; 
+            border: 3px solid #444;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 10px;
+            color: #f5f5f5;
+        }
+        .form-section {
+            flex: 2;
+            margin-right: 10px;
+        }
+        .reviews-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        h1 {
+            color: #f5f5f5;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 36px;
+        }
+        textarea {
+            width: calc(100% - 22px); 
+            height: 250px;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 12px;
+            border: 1px solid #555;
+            font-family: 'Roboto', sans-serif;
+            box-sizing: border-box;
+            font-size: 18px;
+            background-color: #1f1f1f;
+            color: #f5f5f5;
+        }
+        textarea:focus {
+            border: none;
+        }
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #f5f5f5;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 18px;
+            font-family: 'Roboto', sans-serif;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #388e3c;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+        }
+        #result img {
+            margin-left: 10px;
+            max-width: 30px;
+        }
+        .review-item {
+            background-color: #4caf50;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            font-size: 18px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .review-item-2 {
+            background-color: #f44336;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            font-size: 18px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .review-item img {
+            margin-left: auto;
+            max-width: 30px;
+        }
+        p{
+            font-size: 15px;
+            color: #fcfcfc60;
+            margin-top: -15px ;
+            margin-left: 5px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Sentiment Analysis</h1>
-    <form action="/predict" method="post" id="sentiment-form">
-        <textarea name="review" placeholder="Enter your review here"></textarea>
-        <br>
-        <input type="submit" value="Predict Sentiment">
-    </form>
-
-    <div id="result"></div>
-
+    <div class="container">
+        <div class="form-section">
+            <h1>Sentiment Analysis</h1>
+            <p>English language required</p>
+            <form action="/predict" method="post" id="sentiment-form">
+                <textarea id="text-input" name="review" placeholder="Enter your review here" style="resize: none;"></textarea>
+                <br>
+                <input type="submit" value="Predict Sentiment">
+            </form>
+            <div id="result">
+                <span id="result-text"></span>
+                <img id="result-image" src="" alt="">
+            </div>
+        </div>
+        <div class="reviews-section">
+            <h1>EXAMPLE:</h1>
+            <div class="review-item">Review 1 <br>Great movie! Really enjoyed it. <img src="static/images/good.png" alt="Good"></div>
+            <div class="review-item">Review 2 <br>It is a film that entertains, inspires, and challenges viewers to think deeply <img src="static/images/good.png" alt="Good"></div>
+            <div class="review-item-2">Review 3 <br>I did not like the plot. <img src="static/images/bad.png" alt="Bad"></div>
+            <div class="review-item">Review 4 <br>Excellent acting and storyline. <img src="static/images/good.png" alt="Good"></div>
+        </div>
+    </div>
     <script>
         document.getElementById('sentiment-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission
-            
-            var formData = new FormData(this);
+    event.preventDefault(); 
+    var formData = new FormData(this);
+    var text_input = document.getElementById('text-input');
 
-            fetch('/predict', {
-                method: 'POST',
-                body: formData,
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Tampilkan hasil prediksi di dalam div dengan id 'result'
-                document.getElementById('result').innerHTML = 'Predicted Sentiment: ' + data.sentiment;
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        });
+    // Memeriksa jika textarea kosong
+    if (text_input.value.trim() === "") {
+        var resultText = document.getElementById('result-text');
+        var resultImage = document.getElementById('result-image');
+
+        // Menyembunyikan hasil
+        resultText.style.display = 'none';
+        resultImage.style.display = 'none';
+
+        // Keluar dari fungsi untuk mencegah pengiriman form
+
+        alert('Textarea cannot be empty!');
+        return;
+    }
+
+    fetch('/predict', {
+        method: 'POST',
+        body: formData,
+    })
+    .then(response => response.json())
+    .then(data => {
+        var resultText = document.getElementById('result-text');
+        var resultImage = document.getElementById('result-image');
+        
+        // Menampilkan kembali hasil jika sebelumnya disembunyikan
+        resultText.style.display = 'flex';
+        resultImage.style.display = 'block';
+
+        resultText.innerHTML = 'Predicted Sentiment: ' + data.sentiment;
+
+        // Mengubah warna teks hasil berdasarkan sentimen
+        if (data.sentiment === 'positive') {
+            resultText.style.color = '#4caf50';
+            resultImage.src = 'static/images/good.png';
+            resultImage.alt = 'Good';
+        } else if (data.sentiment === 'negative') {
+            resultText.style.color = '#f44336';
+            resultImage.src = 'static/images/bad.png';
+            resultImage.alt = 'Bad';
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
+
     </script>
 </body>
 </html>

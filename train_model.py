@@ -32,13 +32,10 @@ X_test_tfidf = vectorizer.transform(X_test)
 model = LogisticRegression()
 model.fit(X_train_tfidf, y_train)
 
-# Memprediksi pada data uji
-y_pred = model.predict(X_test_tfidf)
-
 # Grid Search untuk optimasi hyperparameter
 from sklearn.model_selection import GridSearchCV
 param_grid = {'C': [0.1, 1, 10], 'solver': ['newton-cg', 'lbfgs', 'liblinear']}
-grid = GridSearchCV(LogisticRegression(), param_grid, refit=True, verbose=2)
+grid = GridSearchCV(model, param_grid, refit=True, verbose=2)
 grid.fit(X_train_tfidf, y_train)
 best_model = grid.best_estimator_
 

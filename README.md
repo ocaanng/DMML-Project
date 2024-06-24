@@ -14,11 +14,19 @@
 - ├─ 📦models/
 - │  ├─ 📜sentiment_model.pkl
 - │  └─ 📜vectorizer.pkl
+- ├─ 📦static/
+- │  └─ 📦images/
+  |     ├─ 📜bad.png
+  │     ├─ 📜good.png
+  │     ├─ 📜image.jpg
+  │     ├─ 📜imdb.jpg
+  │     ├─ 📜negatif.jpg
+  │     └─ 📜positif.jpg
 - ├─ 📦templates/
 - │  └─ 📜index.html
 - ├─ 📜app.py
 - ├─ 📜config.py
-- ├─ 📜final_project.ipynb
+- ├─ 📜model_analysis.ipynb
 - ├─ 📜README.md
 - ├─ 📜requirements.txt
 - ├─ 📜run.py

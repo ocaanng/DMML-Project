@@ -9,19 +9,19 @@
 # Structure
 
 📦DMML-Project/
--  ├─ 📦data/
+- ├─ 📦data/
 - │  └─ 📜IMDB Dataset.csv
 - ├─ 📦models/
 - │  ├─ 📜sentiment_model.pkl
 - │  └─ 📜vectorizer.pkl
 - ├─ 📦static/
 - │  └─ 📦images/
-- |     ├─ 📜bad.png
-- │     ├─ 📜good.png
-- │     ├─ 📜image.jpg
-- │     ├─ 📜imdb.jpg
-- │     ├─ 📜negatif.jpg
-- │     └─ 📜positif.jpg
+- |      ├─ 📜bad.png
+- │      ├─ 📜good.png
+- │      ├─ 📜image.jpg
+- │      ├─ 📜imdb.jpg
+- │      ├─ 📜negatif.jpg
+- │      └─ 📜positif.jpg
 - ├─ 📦templates/
 - │  └─ 📜index.html
 - ├─ 📜app.py

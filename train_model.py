@@ -42,8 +42,6 @@ grid = GridSearchCV(LogisticRegression(), param_grid, refit=True, verbose=2)
 grid.fit(X_train_tfidf, y_train)
 best_model = grid.best_estimator_
 
-
-
 # Simpan model dan vectorizer ke dalam file 'models/sentiment_model.pkl' dan 'models/vectorizer.pkl'
 joblib.dump(best_model, 'models/sentiment_model.pkl')
 joblib.dump(vectorizer, 'models/vectorizer.pkl')

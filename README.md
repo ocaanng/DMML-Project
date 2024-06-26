@@ -33,6 +33,16 @@
 # Tampilan Aplikasi
 ![WhatsApp Image 2024-06-25 at 13 40 04_6613cf3c](https://github.com/ocaanng/DMML-Project/assets/128483920/c3f7804a-b1aa-4c56-8c0b-70f7246da92e)
 
+# Menjalankan Aplikasi
+- Lakukan clone terhadap hasil fork repository ini ke komputer kalian
+  ```
+  git clone <url-repositori-hasil-fork>
+  ```
+- Buka Terminal Pada File Yang Sudah Di Clone
+ ```
+  python app.py
+  ```
+
 # LINK 
 - [Link GoogleDocs Laporan](https://docs.google.com/document/d/1TVnqlBXHyk6kpmUoGUJ_rBVPX9myTUFeui9mvvBQaKw/edit)
 - [Link Canva](https://www.canva.com/design/DAGIB3lu7VQ/XK07LeRy64kijz55Tk-aIA/edit?utm_content=DAGIB3lu7VQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)

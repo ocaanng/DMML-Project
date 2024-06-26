@@ -39,7 +39,7 @@
   git clone <url-repositori-hasil-fork>
   ```
 - Buka Terminal Pada File Yang Sudah Di Clone
- ```
+  ```
   python app.py
   ```
 

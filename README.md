@@ -30,6 +30,8 @@
 - └─ 📜train_model.py
 
  
+# Tampilan Aplikasi
+![WhatsApp Image 2024-06-25 at 13 40 04_6613cf3c](https://github.com/ocaanng/DMML-Project/assets/128483920/c3f7804a-b1aa-4c56-8c0b-70f7246da92e)
 
 # LINK 
 - [Link GoogleDocs Laporan](https://docs.google.com/document/d/1TVnqlBXHyk6kpmUoGUJ_rBVPX9myTUFeui9mvvBQaKw/edit)

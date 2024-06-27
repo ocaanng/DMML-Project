@@ -42,7 +42,7 @@
 # Menjalankan Aplikasi
 - Lakukan clone terhadap hasil fork repository ini ke komputer kalian
   ```
-  git clone <url-repositori-hasil-fork>
+  git clone <https://github.com/ocaanng/DMML-Project.git>
   ```
 - Buka Terminal Pada File Yang Sudah Di Clone
   ```
